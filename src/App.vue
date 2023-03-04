@@ -1,32 +1,65 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
+    <the-header></the-header>
+    <router-view class="container"></router-view>
   </div>
 </template>
 
+<script>
+import TheHeader from "@/components/TheHeader.vue";
+
+export default {
+  components: {
+    TheHeader,
+  },
+};
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+body {
+  margin: 0px;
+  font-family: sans-serif;
+  color: #234;
 }
-
-nav {
-  padding: 30px;
+ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
 }
-
-nav a {
+a {
   font-weight: bold;
-  color: #2c3e50;
+  text-decoration: none;
+  color: #234;
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
+a.router-link-exact-active {
+  color: #4b8;
+}
+img {
+  max-width: 100%;
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.v-enter {
+  opacity: 0;
+  transform: translate3d(-20px, 0, 0);
+}
+.v-enter-active {
+  transition: all 0.3s;
+}
+.conteudo {
+  display: grid;
+  grid-template-columns: 1fr minmax(200px, 400px);
+  grid-gap: 30px;
+}
+
+@media screen and (max-width: 700px) {
+  .conteudo {
+    display: block;
+  }
 }
 </style>
